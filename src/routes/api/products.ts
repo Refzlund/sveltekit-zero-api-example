@@ -1,6 +1,6 @@
 import { querySpread, type API } from 'sveltekit-zero-api'
 // Import any Any generalized response-code (About 47 included)
-import { Ok, Created, BadRequest, Accepted } from 'sveltekit-zero-api/http'
+import { Ok, Created, BadRequest, Accepted, InternalError } from 'sveltekit-zero-api/http'
 
 // We define what parameters the endpoint accepts
 interface Post {
@@ -82,6 +82,8 @@ export const get = async (event: API<Get>) => {
 	const { searchParams } = event.url
 
 	const { productName } = querySpread(searchParams)
+
+	return InternalError()
 
 	if (productName) {
 		const item = products.find(p => p.productName == productName)

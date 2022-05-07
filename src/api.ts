@@ -5,7 +5,9 @@ import type onWatch from 'sveltekit-zero-api/onWatch'
 // Creating API entry-point to routes and exporting it below
 const routes = createZeroApi<typeof onWatch>({
 	// Deal with Error
-	onError: async (err) => console.error('[API]', err)
+	onError: async (err) => console.error('[API]', err),
+
+	prependCallbacks: (method) => method.serverError(r => console.log('A server error has occurred:', r))
 });
 
 /*
