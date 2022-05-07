@@ -17,5 +17,6 @@
 			"$src/*": ["src/*"],
 			"$src": ["src"]
 		}
-	}
+	},
+	"include": ["node_modules/sveltekit-zero-api/__temp.ts"]
 }

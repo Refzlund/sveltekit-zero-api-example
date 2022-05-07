@@ -103,7 +103,7 @@
 	<div>
 		<div>
 			<h3>List products</h3>
-			<button>Refresh</button>
+			<button on:click={getProducts}>Refresh</button>
 		</div>
 		<table>
 			<thead>
